@@ -13,7 +13,7 @@ import java.util.Map;
 import java.util.Arrays;
 
 /**
- * @author Filip Klimes <filip@filipklimes.cz>
+ * @author klimesf
  */
 public class ModelInspectorImpl implements ModelInspector
 {

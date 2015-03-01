@@ -1,13 +1,14 @@
-package cz.filipklimes.bachelor.model;
+package cz.filipklimes.bachelor.inspection.model;
 
-import cz.filipklimes.bachelor.model.annotations.Entity;
-import cz.filipklimes.bachelor.model.annotations.Table;
-import cz.filipklimes.bachelor.model.annotations.UiOrder;
-import cz.filipklimes.bachelor.model.annotations.UiPassword;
-import cz.filipklimes.bachelor.model.annotations.NotNull;
+import com.codingcrayons.aspectfaces.annotations.UiOrder;
+import com.codingcrayons.aspectfaces.annotations.UiPassword;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 /**
- * @author Filip Klimes <filip@filipklimes.cz>
+ * @author klimesf
  */
 @Entity
 @Table(name = "cc_user")

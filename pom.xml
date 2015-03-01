@@ -11,6 +11,7 @@
 
     <modules>
         <module>inspection</module>
+        <module>annotation</module>
     </modules>
 
     <properties>
@@ -39,22 +40,9 @@
             <layout>default</layout>
             <url>http://download.java.net/maven/2/</url>
         </repository>
-        <repository>
-            <id>codingcrayons-repository</id>
-            <name>CodingCrayons Maven Repository</name>
-            <url>http://maven.codingcrayons.com/content/groups/public/</url>
-        </repository>
     </repositories>
 
     <dependencies>
-        <dependency>
-            <groupId>com.codingcrayons.aspectfaces</groupId>
-            <artifactId>javaee-jsf2</artifactId>
-            <version>${aspectfaces.version}</version>
-            <type>pom</type>
-            <scope>provided</scope>
-        </dependency>
-
         <dependency>
             <groupId>javax.validation</groupId>
             <artifactId>validation-api</artifactId>

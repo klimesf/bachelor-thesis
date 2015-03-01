@@ -1,7 +1,7 @@
 package cz.filipklimes.bachelor.inspection.model;
 
-import com.codingcrayons.aspectfaces.annotations.UiOrder;
-import com.codingcrayons.aspectfaces.annotations.UiPassword;
+import cz.filipklimes.bachelor.annotation.UiOrder;
+import cz.filipklimes.bachelor.annotation.UiPassword;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;

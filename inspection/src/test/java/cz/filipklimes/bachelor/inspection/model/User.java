@@ -12,8 +12,7 @@ import javax.validation.constraints.NotNull;
  */
 @Entity
 @Table(name = "cc_user")
-public class User
-{
+public class User {
 
     @NotNull
     private String username;
@@ -25,22 +24,19 @@ public class User
 
     @UiOrder(1)
     @NotNull
-    public String getUsername()
-    {
+    public String getUsername() {
         return username;
     }
 
     @UiOrder(2)
     @NotNull
     @UiPassword
-    public String getPassword()
-    {
+    public String getPassword() {
         return password;
     }
 
     @NotNull
-    public boolean isConfirmed()
-    {
+    public boolean isConfirmed() {
         return confirmed;
     }
 }

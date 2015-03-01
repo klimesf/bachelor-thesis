@@ -15,8 +15,7 @@ import java.util.Arrays;
 /**
  * @author klimesf
  */
-public class ModelInspectorImpl implements ModelInspector
-{
+public class ModelInspectorImpl implements ModelInspector {
 
     /**
      * {@inheritDoc}
@@ -26,8 +25,7 @@ public class ModelInspectorImpl implements ModelInspector
      * @throws ClassNotFoundException
      */
     @Override
-    public Map<Field, List<Annotation>> inspectClass(String className) throws ClassNotFoundException
-    {
+    public Map<Field, List<Annotation>> inspectClass(String className) throws ClassNotFoundException {
         Class<?> clazz = Class.forName(className);
         Map<Field, List<Annotation>> fieldAnnotations = new HashMap<>();
         fieldAnnotations.putAll(this.findFieldAnnotations(clazz));
@@ -56,8 +54,7 @@ public class ModelInspectorImpl implements ModelInspector
      * @throws ClassNotFoundException
      */
     @Override
-    public Map<Class, Map<Field, Annotation>> inspectPackage(String packageName) throws ClassNotFoundException
-    {
+    public Map<Class, Map<Field, Annotation>> inspectPackage(String packageName) throws ClassNotFoundException {
         throw new NotImplementedException();
         //  foreach class in package
         //      list add this.inspectClass()
@@ -69,8 +66,7 @@ public class ModelInspectorImpl implements ModelInspector
      * @param clazz
      * @return
      */
-    private Map<Field, List<Annotation>> findFieldAnnotations(Class<?> clazz)
-    {
+    private Map<Field, List<Annotation>> findFieldAnnotations(Class<?> clazz) {
         Map<Field, List<Annotation>> fieldAnnotations = new HashMap<>();
         for (Field field : clazz.getDeclaredFields()) {
             fieldAnnotations.put(field, Arrays.asList(field.getAnnotations()));
@@ -84,8 +80,7 @@ public class ModelInspectorImpl implements ModelInspector
      * @param clazz
      * @return
      */
-    private Map<Field, List<Annotation>> findMethodAnnotations(Class<?> clazz)
-    {
+    private Map<Field, List<Annotation>> findMethodAnnotations(Class<?> clazz) {
         Map<Field, List<Annotation>> fieldAnnotations = new HashMap<>();
         List<Method> methods = this.findGettersSetters(clazz);
         for (Method method : methods) {
@@ -107,8 +102,7 @@ public class ModelInspectorImpl implements ModelInspector
      * @param clazz
      * @return
      */
-    private List<Method> findGettersSetters(Class<?> clazz)
-    {
+    private List<Method> findGettersSetters(Class<?> clazz) {
         ArrayList<Method> list = new ArrayList<>();
         Method[] methods = clazz.getDeclaredMethods();
         for (Method method : methods) {
@@ -125,8 +119,7 @@ public class ModelInspectorImpl implements ModelInspector
      * @param method
      * @return
      */
-    private boolean isGetter(Method method)
-    {
+    private boolean isGetter(Method method) {
         return Modifier.isPublic(method.getModifiers()) &&
                 !method.getReturnType().equals(void.class) &&
                 method.getParameterTypes().length == 0 &&
@@ -139,8 +132,7 @@ public class ModelInspectorImpl implements ModelInspector
      * @param method
      * @return
      */
-    private boolean isSetter(Method method)
-    {
+    private boolean isSetter(Method method) {
         return Modifier.isPublic(method.getModifiers()) &&
                 method.getParameterTypes().length == 1 &&
                 method.getName().matches("^set[A-Z].*");
@@ -152,8 +144,7 @@ public class ModelInspectorImpl implements ModelInspector
      * @param method
      * @return
      */
-    private String getFieldName(Method method)
-    {
+    private String getFieldName(Method method) {
         String methodName = method.getName();
         String fieldName;
         if (methodName.startsWith("is")) {

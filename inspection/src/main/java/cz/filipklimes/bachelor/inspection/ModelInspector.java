@@ -8,8 +8,7 @@ import java.util.Map;
 /**
  * @author klimesf
  */
-public interface ModelInspector
-{
+public interface ModelInspector {
 
     /**
      * Inspects given class for field attributes.

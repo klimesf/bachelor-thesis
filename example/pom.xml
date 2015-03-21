@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>bachelor</artifactId>
+        <groupId>cz.filipklimes</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>example</artifactId>
+    <packaging>war</packaging>
+
+    <properties>
+        <javax.serlvet.version>3.1.0</javax.serlvet.version>
+        <org.hibernate.javax.persistence.version>1.0.0.Final</org.hibernate.javax.persistence.version>
+    </properties>
+
+    <dependencies>
+        <!-- Other project modules -->
+        <dependency>
+            <groupId>cz.filipklimes</groupId>
+            <artifactId>inspection</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <!-- Adaptive RESTful API -->
+        <dependency>
+            <groupId>cz.cvut.fel</groupId>
+            <artifactId>adaptive-restful-api-caching</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>cz.cvut.fel</groupId>
+            <artifactId>adaptive-restful-api-core</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>cz.cvut.fel</groupId>
+            <artifactId>adaptive-restful-api-data</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>cz.cvut.fel</groupId>
+            <artifactId>adaptive-restful-api-servlet</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>cz.cvut.fel</groupId>
+            <artifactId>adaptive-restful-api-security</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>cz.cvut.fel</groupId>
+            <artifactId>adaptive-restful-api-serialization</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <!-- Servlet -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>${javax.serlvet.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- JPA (via Hibernate) -->
+        <dependency>
+            <groupId>org.hibernate.javax.persistence</groupId>
+            <artifactId>hibernate-jpa-2.1-api</artifactId>
+            <version>${org.hibernate.javax.persistence.version}</version>
+        </dependency>
+    </dependencies>
+</project>

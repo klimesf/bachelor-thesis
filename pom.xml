@@ -12,6 +12,7 @@
     <modules>
         <module>inspection</module>
         <module>annotation</module>
+        <module>example</module>
     </modules>
 
     <properties>

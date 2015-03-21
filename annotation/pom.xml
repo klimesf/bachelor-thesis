@@ -9,14 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>inspection</artifactId>
+    <artifactId>annotation</artifactId>
 
-    <dependencies>
-        <dependency>
-            <groupId>cz.filipklimes</groupId>
-            <artifactId>annotation</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-    </dependencies>
 
 </project>

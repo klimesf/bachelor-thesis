@@ -14,9 +14,9 @@ import java.util.List;
  */
 public class SingletonModelInspectorImpl implements ModelInspector {
 
-    private static ModelInspector instance = new SingletonModelInspectorImpl();
+    protected static ModelInspector instance = new SingletonModelInspectorImpl();
 
-    private SingletonModelInspectorImpl() {
+    protected SingletonModelInspectorImpl() {
         if (this.instance != null) {
             throw new RuntimeException("SingletonModelInstanceImpl has already been constructed.");
         }

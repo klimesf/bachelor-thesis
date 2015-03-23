@@ -8,9 +8,9 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 
-public class SingletonModelInspectorImplTest {
+public class PrefixedModelInspectorImplTest {
 
-    private ModelInspector inspector = SingletonModelInspectorImpl.getInstance();
+    private ModelInspector inspector = new PrefixedModelInspectorImpl(SingletonModelInspectorImpl.getInstance(), "cz.filipklimes.bachelor.inspection.");
 
     @Test(dataProvider = "testInspectClass")
     public void testInspectClass(String clazz, String json) throws Exception {
@@ -25,7 +25,7 @@ public class SingletonModelInspectorImplTest {
     private Object[][] provideInspectClassData() {
         return new Object[][]{
                 new String[]{
-                        User.class.getCanonicalName(),
+                        "model.User",
                         "{\"name\":\"cz.filipklimes.bachelor.inspection.model.User\",\"fields\":[{\"name\":\"username\",\"type\":\"java.lang.String\"},{\"name\":\"password\",\"type\":\"java.lang.String\"},{\"name\":\"confirmed\",\"type\":\"boolean\"}]}"
                 }
         };
@@ -33,7 +33,7 @@ public class SingletonModelInspectorImplTest {
 
     @Test
     public void testInspectPackage() throws Exception {
-        List<SerializableMetadata> metadataList = inspector.inspectPackage("cz.filipklimes.bachelor.inspection.model");
+        List<SerializableMetadata> metadataList = inspector.inspectPackage("model");
         Assert.assertEquals(1, metadataList.size());
         metadataList.forEach((metadata) -> Assert.assertNotNull(metadata.toJson()));
     }

@@ -16,7 +16,6 @@ import cz.cvut.fel.adaptiverestfulapi.serialization.Authorization;
 import cz.cvut.fel.adaptiverestfulapi.serialization.application.json.JsonSerializer;
 import cz.cvut.fel.adaptiverestfulapi.serialization.text.plain.PlainTextSerializer;
 
-import javax.persistence.EntityManager;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -25,13 +24,12 @@ public class ConfigurationListener implements ConfigurationInspectionListener {
 
     @Override
     public List<Variable> configuration() {
-        EntityManager entityManager = PersistenceContext.getInstance().getManager();
 
         List<Variable> vars = new LinkedList<>();
-        vars.add(new Variable(GetHandler.Key, new cz.cvut.fel.adaptiverestfulapi.data.persistence.GetHandler(entityManager)));
-        vars.add(new Variable(PostHandler.Key, new cz.cvut.fel.adaptiverestfulapi.data.persistence.PostHandler(entityManager)));
-        vars.add(new Variable(PutHandler.Key, new cz.cvut.fel.adaptiverestfulapi.data.persistence.PutHandler(entityManager)));
-        vars.add(new Variable(DeleteHandler.Key, new cz.cvut.fel.adaptiverestfulapi.data.persistence.DeleteHandler(entityManager)));
+        vars.add(new Variable(GetHandler.Key, new GetInMemoryHandler()));
+//        vars.add(new Variable(PostHandler.Key, new cz.cvut.fel.adaptiverestfulapi.data.persistence.PostHandler(entityManager)));
+//        vars.add(new Variable(PutHandler.Key, new cz.cvut.fel.adaptiverestfulapi.data.persistence.PutHandler(entityManager)));
+//        vars.add(new Variable(DeleteHandler.Key, new cz.cvut.fel.adaptiverestfulapi.data.persistence.DeleteHandler(entityManager)));
 
         vars.add(new Variable(PlainTextSerializer.MIME, new PlainTextSerializer()));
         vars.add(new Variable(JsonSerializer.MIME, new JsonSerializer()));

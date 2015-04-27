@@ -18,8 +18,7 @@ public class ApplicationContextListener implements ServletContextListener {
         ApplicationContext ctx = ApplicationContext.getInstance();
 
         try {
-            PersistenceContext.getInstance().init();
-            ExampleData.generate(PersistenceContext.getInstance().getManager());
+            ExampleData.init();
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -44,12 +43,5 @@ public class ApplicationContextListener implements ServletContextListener {
 
     @Override
     public void contextDestroyed(ServletContextEvent servletContextEvent) {
-        try {
-            PersistenceContext.getInstance().destroy();
-
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
     }
-
 }

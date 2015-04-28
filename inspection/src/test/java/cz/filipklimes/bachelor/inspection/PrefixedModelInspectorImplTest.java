@@ -35,7 +35,10 @@ public class PrefixedModelInspectorImplTest {
     public void testInspectPackage() throws Exception {
         List<SerializableMetadata> metadataList = inspector.inspectPackage("model");
         Assert.assertEquals(1, metadataList.size());
-        metadataList.forEach((metadata) -> Assert.assertNotNull(metadata.toJson()));
+//        metadataList.forEach((metadata) -> Assert.assertNotNull(metadata.toJson()));
+        for (SerializableMetadata metadata : metadataList) {
+            Assert.assertNotNull(metadata.toJson());
+        }
     }
 
 }

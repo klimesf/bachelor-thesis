@@ -2,6 +2,7 @@ package cz.filipklimes.bachelor.inspection.metadata;
 
 import com.google.gson.Gson;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -17,8 +18,11 @@ public class ClassMetadataExtractor implements MetadataExtractor {
 
     public ClassMetadataExtractor(Class<?> clazz) {
         this.clazz = clazz;
-        Arrays.asList(clazz.getDeclaredFields()).forEach(
-                (field) -> this.fieldMetadata.add((new FieldMetadataExtractor(field).createSerializableMetadata())));
+//        Arrays.asList(clazz.getDeclaredFields()).forEach(
+//                (field) -> this.fieldMetadata.add((new FieldMetadataExtractor(field).createSerializableMetadata())));
+        for(Field field : Arrays.asList(clazz.getDeclaredFields())) {
+            this.fieldMetadata.add((new FieldMetadataExtractor(field).createSerializableMetadata()));
+        }
     }
 
     @Override

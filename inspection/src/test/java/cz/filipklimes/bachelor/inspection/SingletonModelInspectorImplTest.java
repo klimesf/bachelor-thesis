@@ -1,5 +1,6 @@
 package cz.filipklimes.bachelor.inspection;
 
+import cz.filipklimes.bachelor.inspection.metadata.Metadata;
 import cz.filipklimes.bachelor.inspection.metadata.SerializableMetadata;
 import cz.filipklimes.bachelor.inspection.model.User;
 import org.testng.Assert;
@@ -35,7 +36,10 @@ public class SingletonModelInspectorImplTest {
     public void testInspectPackage() throws Exception {
         List<SerializableMetadata> metadataList = inspector.inspectPackage("cz.filipklimes.bachelor.inspection.model");
         Assert.assertEquals(1, metadataList.size());
-        metadataList.forEach((metadata) -> Assert.assertNotNull(metadata.toJson()));
+//        metadataList.forEach((metadata) -> Assert.assertNotNull(metadata.toJson()));
+        for (SerializableMetadata metadata : metadataList) {
+            Assert.assertNotNull(metadata.toJson());
+        }
     }
 
 }
